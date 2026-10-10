@@ -1,0 +1,348 @@
+{
+  "info": {
+    "name": "Oakridge Library",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register (student)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Rahul Kumar\",\n  \"email\": \"rahul@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/register",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login (student)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"rahul@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/login",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login (admin - see README for default dev creds)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@library.local\",\n  \"password\": \"ChangeMe123!\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/login",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List books",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/books",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "books"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create book (ADMIN only)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Clean Code\",\n  \"author\": \"Robert C. Martin\",\n  \"isbn\": \"9780132350884\",\n  \"category\": \"Software\",\n  \"totalCopies\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/books",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "books"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Borrow a book",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/borrow/1",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "borrow",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "My borrow history",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/borrow/my",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "borrow",
+            "my"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Return a book",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/borrow/1/return",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "borrow",
+            "1",
+            "return"
+          ]
+        }
+      }
+    },
+    {
+      "name": "All borrow records (ADMIN only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/borrow/all",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "borrow",
+            "all"
+          ]
+        }
+      }
+    },
+    {
+      "name": "My profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/students/me",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "students",
+            "me"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List students (ADMIN only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/students",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "students"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Unlock a student (ADMIN only)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/students/2/unlock",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "students",
+            "2",
+            "unlock"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login attempts (ADMIN only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/login-attempts",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "login-attempts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Flagged login attempts (ADMIN only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/login-attempts/flagged",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "login-attempts",
+            "flagged"
+          ]
+        }
+      }
+    }
+  ]
+}
