@@ -78,6 +78,7 @@ public class SecurityConfig {
             )
             .authorizeHttpRequests(auth -> auth
                 // public
+                .requestMatchers(HttpMethod.GET, "/health").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login").permitAll()
 
                 // any authenticated user (student or admin)
