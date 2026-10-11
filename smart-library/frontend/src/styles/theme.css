@@ -155,6 +155,24 @@ tbody tr:last-child td { border-bottom: none; }
 .default-admin-card code { display: block; padding: 9px 10px; border-radius: 6px; background: var(--parchment); color: var(--espresso); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; line-height: 1.7; }
 .default-admin-card button { margin-top: 9px; width: 100%; }
 
+/* Responsive sign-in layout */
+.login-page { display: flex; min-height: 100vh; width: 100%; overflow-x: hidden; }
+.login-hero { flex: 1 1 46%; min-width: 0; background: linear-gradient(160deg, var(--espresso) 0%, var(--espresso-dark) 100%); color: var(--parchment); display: flex; flex-direction: column; justify-content: center; padding: 60px; }
+.login-panel { flex: 1 1 54%; min-width: 0; display: flex; align-items: center; justify-content: center; padding: 40px; background: var(--paper); }
+
+@media (max-width: 680px) {
+  .login-page { display: block; min-height: 100dvh; }
+  .login-hero { min-height: auto; padding: 34px 24px 30px; }
+  .login-hero h1 { font-size: clamp(32px, 10vw, 44px) !important; line-height: 1.08 !important; margin-bottom: 14px !important; }
+  .login-hero p { font-size: 14px !important; line-height: 1.5 !important; margin: 0; }
+  .login-panel { min-height: auto; padding: 34px 24px 48px; align-items: flex-start; }
+  .login-panel form { max-width: 100% !important; }
+  .login-panel h2 { font-size: 28px !important; }
+  .login-panel .field { margin-bottom: 18px; }
+  .login-panel input { min-height: 48px; font-size: 16px; }
+  .login-panel button { min-height: 48px; }
+}
+
 
 /* Responsive application chrome */
 .app-layout { display: flex; min-height: 100vh; background: var(--paper); }

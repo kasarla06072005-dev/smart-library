@@ -32,8 +32,8 @@ function Login() {
   }
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      <div style={{ flex: "1 1 46%", background: "linear-gradient(160deg, var(--espresso) 0%, var(--espresso-dark) 100%)", color: "var(--parchment)", display: "flex", flexDirection: "column", justifyContent: "center", padding: "60px" }}>
+    <div className="login-page">
+      <div className="login-hero">
         <div style={{ maxWidth: "440px" }}>
           <div style={{ fontSize: "13px", letterSpacing: "0.08em", color: "var(--brass-light)", marginBottom: "18px" }}>Smart Library</div>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "42px", lineHeight: "1.15", color: "#fff", fontWeight: 700, marginBottom: "20px" }}>Every book finds its reader.</h1>
@@ -41,7 +41,7 @@ function Login() {
         </div>
       </div>
 
-      <div style={{ flex: "1 1 54%", display: "flex", alignItems: "center", justifyContent: "center", padding: "40px", background: "var(--paper)" }}>
+      <div className="login-panel">
         <form onSubmit={submit} style={{ width: "100%", maxWidth: "360px" }}>
           <h2 style={{ fontSize: "24px", marginBottom: "6px" }}>Sign in</h2>
           <p className="help-text" style={{ marginBottom: "28px" }}>Use your library account to continue.</p>
